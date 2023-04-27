@@ -1,0 +1,28 @@
+{
+  "name": "chaungda",
+  "version": "1.0.1",
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "keywords": [
+    "chaungda",
+    "vue3组件库"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "author": "chengk",
+  "license": "MIT",
+  "description": "",
+  "typings": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/350478992/chuangda.git"
+  },
+  "dependencies": {
+    "@easyest/utils": "^1.0.2"
+  }
+}
