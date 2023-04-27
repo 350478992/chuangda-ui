@@ -1,5 +1,5 @@
 {
-  "name": "chaungda",
+  "name": "@chuangda/components",
   "version": "1.0.2",
   "main": "lib/index.js",
   "module": "es/index.mjs",
