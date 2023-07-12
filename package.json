@@ -30,6 +30,6 @@
     "url": "https://github.com/350478992/chuangda.git"
   },
   "dependencies": {
-    "@chuangda/utils": "workspace:^1.0.0"
+    "@chuangda/utils": "^1.0.0"
   }
 }
