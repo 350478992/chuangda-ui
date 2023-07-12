@@ -1,6 +1,6 @@
 {
   "name": "@chuangda/components",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "module": "es/index.mjs",
   "files": [
@@ -22,11 +22,14 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "scripts": {
+    "release": "release-it"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/350478992/chuangda.git"
   },
   "dependencies": {
-    "@easyest/utils": "^1.0.2"
+    "@chuangda/utils": "workspace:^1.0.0"
   }
 }

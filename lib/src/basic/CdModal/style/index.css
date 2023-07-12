@@ -1,0 +1,17 @@
+.cd-modal .vertical .cd-modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cd-modal-btns {
+  text-align: center;
+}
+.cd-modal-btns-item {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.cd-modal-header-extra {
+  position: absolute;
+  right: 30px;
+  display: inline-block;
+}

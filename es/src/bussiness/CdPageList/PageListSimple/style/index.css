@@ -1,0 +1,37 @@
+.cd-pagelist-simple .search-wrap {
+  margin-bottom: 10px;
+}
+.cd-pagelist-simple .search-wrap-btns {
+  position: relative;
+}
+.cd-pagelist-simple .search-wrap-btns .text-btn-box {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.cd-pagelist-simple .search-wrap-btns .text-btn-box .text-info {
+  color: #1190fb;
+}
+.cd-pagelist-simple .search-wrap-btns .tc {
+  text-align: center;
+}
+.cd-pagelist-simple .search-wrap-btns .ivu-btn {
+  margin-left: 10px;
+}
+.cd-pagelist-simple .search-wrap-btns .ivu-btn:first {
+  margin-left: 0;
+}
+.cd-pagelist-simple .table-btnbar-left {
+  display: flex;
+  align-items: center;
+}
+.cd-pagelist-simple .table-btnbar-right {
+  text-align: right;
+}
+.cd-pagelist-simple .table-box {
+  position: relative;
+}
+.cd-pagelist-simple .table-box,
+.cd-pagelist-simple .table-pager {
+  margin-top: 10px;
+}

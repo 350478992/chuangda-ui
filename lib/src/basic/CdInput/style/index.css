@@ -1,0 +1,9 @@
+.cd-input .ivu-icon-ios-search,
+.cd-input .ivu-input-suffix,
+.cd-input .ivu-input-icon-clear {
+  cursor: pointer;
+}
+.cd-poptip-input,
+.cd-poptip-input .ivu-poptip-rel {
+  width: 100%;
+}
