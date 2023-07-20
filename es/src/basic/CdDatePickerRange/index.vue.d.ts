@@ -16,18 +16,18 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: string;
     };
     startDateDisabled: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     endDateDisabled: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     allDisabled: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:startDate" | "update:endDate")[], "update:startDate" | "update:endDate", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -47,18 +47,18 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: string;
     };
     startDateDisabled: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     endDateDisabled: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     allDisabled: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
 }>> & {
@@ -68,8 +68,8 @@ declare const _sfc_main: import("vue").DefineComponent<{
     keys: string[];
     startDate: string;
     endDate: string;
-    startDateDisabled: boolean;
-    endDateDisabled: boolean;
-    allDisabled: boolean;
+    startDateDisabled: boolean | undefined;
+    endDateDisabled: boolean | undefined;
+    allDisabled: boolean | undefined;
 }, {}>;
 export default _sfc_main;

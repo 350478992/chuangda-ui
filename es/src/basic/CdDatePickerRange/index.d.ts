@@ -15,18 +15,18 @@ export declare const CdDatePickerRange: import("@chuangda/utils/dist/lib/withins
         default: string;
     };
     startDateDisabled: {
-        type: import("vue").PropType<boolean>;
-        required: true;
+        type: import("vue").PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     endDateDisabled: {
-        type: import("vue").PropType<boolean>;
-        required: true;
+        type: import("vue").PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     allDisabled: {
-        type: import("vue").PropType<boolean>;
-        required: true;
+        type: import("vue").PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:startDate" | "update:endDate")[], "update:startDate" | "update:endDate", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -46,18 +46,18 @@ export declare const CdDatePickerRange: import("@chuangda/utils/dist/lib/withins
         default: string;
     };
     startDateDisabled: {
-        type: import("vue").PropType<boolean>;
-        required: true;
+        type: import("vue").PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     endDateDisabled: {
-        type: import("vue").PropType<boolean>;
-        required: true;
+        type: import("vue").PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     allDisabled: {
-        type: import("vue").PropType<boolean>;
-        required: true;
+        type: import("vue").PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
 }>> & {
@@ -67,8 +67,8 @@ export declare const CdDatePickerRange: import("@chuangda/utils/dist/lib/withins
     keys: string[];
     startDate: string;
     endDate: string;
-    startDateDisabled: boolean;
-    endDateDisabled: boolean;
-    allDisabled: boolean;
+    startDateDisabled: boolean | undefined;
+    endDateDisabled: boolean | undefined;
+    allDisabled: boolean | undefined;
 }, {}>>;
 export default CdDatePickerRange;

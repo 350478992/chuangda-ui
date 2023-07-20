@@ -1,0 +1,4 @@
+const A = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAWBAMAAAA/cdFyAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAtUExURUxpcf///////////////////////////////////////////////////////3EAnbYAAAAOdFJOUwAc8MCHJWYIpE5Kz2DdHi6Y5wAAAJlJREFUCNdjYGBgWKxkxQAGLO/evXMAs+YBWS/BLDsg6zGY9Q4EQAx2MKsAxLwHZLwFy/oBWU/ALCEgSxHMYgOyEiBGH3qnA2EwsK8qYEAFnAkMHgxsExgYWPdtYHwnwP06gCHo3UMgS+6dKkPfu2dA1rl3Lxj03r0AsvrePQK65FHhOwE9oGuAFri8cwO5y+4dBDxmCIayTAFJhVhutF/kkwAAAABJRU5ErkJggg==";
+export {
+  A as default
+};

@@ -17,23 +17,23 @@ export declare const CdDatePicker: import("@chuangda/utils/dist/lib/withinstall"
         required: false;
     };
     placeholder: {
-        type: import("vue").PropType<string>;
-        required: true;
+        type: import("vue").PropType<string | undefined>;
+        required: false;
         default: string;
     };
     editable: {
-        type: import("vue").PropType<boolean>;
-        required: true;
+        type: import("vue").PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     datePos: {
-        type: import("vue").PropType<string>;
-        required: true;
+        type: import("vue").PropType<string | undefined>;
+        required: false;
         default: string;
     };
     dateJudge: {
-        type: import("vue").PropType<string>;
-        required: true;
+        type: import("vue").PropType<string | undefined>;
+        required: false;
         default: string;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "on-change")[], "update:modelValue" | "on-change", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -55,23 +55,23 @@ export declare const CdDatePicker: import("@chuangda/utils/dist/lib/withinstall"
         required: false;
     };
     placeholder: {
-        type: import("vue").PropType<string>;
-        required: true;
+        type: import("vue").PropType<string | undefined>;
+        required: false;
         default: string;
     };
     editable: {
-        type: import("vue").PropType<boolean>;
-        required: true;
+        type: import("vue").PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     datePos: {
-        type: import("vue").PropType<string>;
-        required: true;
+        type: import("vue").PropType<string | undefined>;
+        required: false;
         default: string;
     };
     dateJudge: {
-        type: import("vue").PropType<string>;
-        required: true;
+        type: import("vue").PropType<string | undefined>;
+        required: false;
         default: string;
     };
 }>> & {
@@ -79,9 +79,9 @@ export declare const CdDatePicker: import("@chuangda/utils/dist/lib/withinstall"
     "onOn-change"?: ((...args: any[]) => any) | undefined;
 }, {
     modelValue: string | string[];
-    placeholder: string;
-    editable: boolean;
-    datePos: string;
-    dateJudge: string;
+    placeholder: string | undefined;
+    editable: boolean | undefined;
+    datePos: string | undefined;
+    dateJudge: string | undefined;
 }, {}>>;
 export default CdDatePicker;

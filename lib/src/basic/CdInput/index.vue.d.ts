@@ -9,13 +9,13 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
     placeholder: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     clearable: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     prefix: {
@@ -23,23 +23,23 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
     suffixShow: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     poptip: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     trigger: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     placement: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "on-click" | "on-clear")[], "update:modelValue" | "on-click" | "on-clear", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -52,13 +52,13 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
     placeholder: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     clearable: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     prefix: {
@@ -66,23 +66,23 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
     suffixShow: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     poptip: {
-        type: __PropType<boolean>;
-        required: true;
+        type: __PropType<boolean | undefined>;
+        required: false;
         default: boolean;
     };
     trigger: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     placement: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
 }>> & {
@@ -90,11 +90,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
     "onOn-click"?: ((...args: any[]) => any) | undefined;
     "onOn-clear"?: ((...args: any[]) => any) | undefined;
 }, {
-    clearable: boolean;
-    placement: string;
-    placeholder: string;
-    suffixShow: boolean;
-    poptip: boolean;
-    trigger: string;
+    clearable: boolean | undefined;
+    placement: string | undefined;
+    placeholder: string | undefined;
+    suffixShow: boolean | undefined;
+    poptip: boolean | undefined;
+    trigger: string | undefined;
 }, {}>;
 export default _sfc_main;
