@@ -1,21 +1,16 @@
-import { defineComponent as w, inject as e, resolveComponent as n, openBlock as a, createElementBlock as m, createVNode as c, withCtx as t, Fragment as U, renderList as x, unref as f, createBlock as y, createTextVNode as _, toDisplayString as h, createElementVNode as g } from "vue";
-import P from "../../assets/images/user-img.png.mjs";
+import { defineComponent as h, inject as o, resolveComponent as n, openBlock as a, createElementBlock as m, createVNode as c, withCtx as t, Fragment as x, renderList as y, unref as f, createBlock as P, createTextVNode as _, toDisplayString as w, createElementVNode as g } from "vue";
+import F from "../../assets/images/user-img.png.mjs";
 import "./style/index.css";
-import F from "@/config";
-import { useRouter as G } from "vue-router";
-import M from "./useUserOperas.mjs";
-const V = { class: "cd-user-opera" }, b = { href: "javascript:void(0)" }, j = /* @__PURE__ */ g("img", {
+import G from "@/config";
+import { useRouter as H } from "vue-router";
+import V from "./useUserOperas.mjs";
+const b = { class: "cd-user-opera" }, j = { href: "javascript:void(0)" }, E = /* @__PURE__ */ g("img", {
   class: "avatar",
-  src: P
-}, null, -1), E = w({ name: "CdUserSetting" }), J = /* @__PURE__ */ w({
-  ...E,
-  setup(H) {
-    G();
-    const D = e("store_userInfo");
-    e(
-      "loginoutHandle"
-    );
-    const O = {
+  src: F
+}, null, -1), L = h({ name: "CdUserSetting" }), Q = /* @__PURE__ */ h({
+  ...L,
+  setup(A) {
+    const O = H(), D = o("storeUserInfo"), $ = o("loginoutHandle"), C = {
       baseInfo: () => {
         console.log("基本信息");
       },
@@ -32,9 +27,9 @@ const V = { class: "cd-user-opera" }, b = { href: "javascript:void(0)" }, j = /*
       roleChange: () => {
       },
       downLoadPdf: () => {
-        const o = Date.parse(/* @__PURE__ */ new Date()) / 1e3;
+        const e = Date.parse(/* @__PURE__ */ new Date()) / 1e3;
         window.open(
-          `${F.eformBaseUrl}/plugin/BatchPrintSetup.rar?t=${o}`
+          `${G.eformBaseUrl}/plugin/BatchPrintSetup.rar?t=${e}`
         );
       },
       downUseGuidePdf: () => {
@@ -44,36 +39,46 @@ const V = { class: "cd-user-opera" }, b = { href: "javascript:void(0)" }, j = /*
       contact: () => {
       },
       logout: () => {
-        console.log("退出登录");
+        window.$Modal.confirm({
+          title: "温馨提示",
+          content: "你确定要退出登录吗？",
+          onOk: () => {
+            $().then((e) => {
+              console.log(e), e.isSuccess ? (window.$Message.success("已经退出系统"), O.push({
+                name: "login"
+              })) : window.$Message.error(e.errorMsg);
+            });
+          }
+        });
       }
-    }, { operasAdd: C, operasDel: I, operasUpdate: v, operasGet: N } = M(O), p = e("userOperas") || [];
-    p.length && C(p);
-    const d = e("hideOperasName") || [];
+    }, { operasAdd: I, operasDel: M, operasUpdate: S, operasGet: k } = V(C), d = o("userOperas") || [];
     d.length && I(d);
-    const i = e("updateOperas") || [];
-    i.length && v(i);
-    const l = N(), S = (o) => {
+    const i = o("hideOperasName") || [];
+    i.length && M(i);
+    const p = o("updateOperas") || [];
+    p.length && S(p);
+    const l = k(), v = (e) => {
       const r = l.find(
-        (s) => s.name === o
+        (s) => s.name === e
       );
       r.func && r.func();
     };
-    return (o, r) => {
-      const s = n("Icon"), $ = n("DropdownItem"), k = n("DropdownMenu"), B = n("Dropdown");
-      return a(), m("div", V, [
+    return (e, r) => {
+      const s = n("Icon"), N = n("DropdownItem"), U = n("DropdownMenu"), B = n("Dropdown");
+      return a(), m("div", b, [
         c(B, {
           class: "cd-user-opera-dropdown",
           transfer: "",
-          onOnClick: S
+          onOnClick: v
         }, {
           list: t(() => [
-            c(k, null, {
+            c(U, null, {
               default: t(() => [
-                (a(!0), m(U, null, x(f(l), (u) => (a(), y($, {
+                (a(!0), m(x, null, y(f(l), (u) => (a(), P(N, {
                   name: u.name
                 }, {
                   default: t(() => [
-                    _(h(u.label), 1)
+                    _(w(u.label), 1)
                   ]),
                   _: 2
                 }, 1032, ["name"]))), 256))
@@ -82,9 +87,9 @@ const V = { class: "cd-user-opera" }, b = { href: "javascript:void(0)" }, j = /*
             })
           ]),
           default: t(() => [
-            g("a", b, [
-              j,
-              _(" " + h(f(D).userName) + " ", 1),
+            g("a", j, [
+              E,
+              _(" " + w(f(D).userName) + " ", 1),
               c(s, { type: "ios-arrow-down" })
             ])
           ]),
@@ -95,5 +100,5 @@ const V = { class: "cd-user-opera" }, b = { href: "javascript:void(0)" }, j = /*
   }
 });
 export {
-  J as default
+  Q as default
 };

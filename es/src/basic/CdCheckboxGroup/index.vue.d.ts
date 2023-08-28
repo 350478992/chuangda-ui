@@ -1,4 +1,4 @@
-import { OptionType } from '../../common/types';
+import { OptionType } from '../../types';
 import { PropType } from 'vue';
 declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: {

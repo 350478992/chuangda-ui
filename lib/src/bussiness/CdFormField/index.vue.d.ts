@@ -1,5 +1,5 @@
 import { PropType } from "vue/dist/vue";
-import { DictQueryCond } from "../../../types/interfaces";
+import { DictQueryCond } from '../../types';
 declare const _sfc_main: import("vue").DefineComponent<{
     type: {
         type: StringConstructor;

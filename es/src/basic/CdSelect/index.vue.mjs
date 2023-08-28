@@ -12,7 +12,7 @@ const Q = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
     },
     // 自定义下拉数据
     list: {
-      // type: Array as PropType<OptionType[]>,
+      // types: Array as PropType<OptionType[]>,
       default: () => []
     },
     equclacode: {

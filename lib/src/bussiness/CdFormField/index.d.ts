@@ -36,8 +36,8 @@ export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall")
         default: string;
     };
     dictConf: {
-        type: import("vue").PropType<import("../../../types/interfaces").DictQueryCond>;
-        default: () => import("../../../types/interfaces").DictQueryCond;
+        type: import("vue").PropType<import("../../types").DictQueryCond>;
+        default: () => import("../../types").DictQueryCond;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     type: {
@@ -77,8 +77,8 @@ export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall")
         default: string;
     };
     dictConf: {
-        type: import("vue").PropType<import("../../../types/interfaces").DictQueryCond>;
-        default: () => import("../../../types/interfaces").DictQueryCond;
+        type: import("vue").PropType<import("../../types").DictQueryCond>;
+        default: () => import("../../types").DictQueryCond;
     };
 }>> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
@@ -90,6 +90,6 @@ export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall")
     readonly: boolean;
     color: string;
     dict: string;
-    dictConf: import("../../../types/interfaces").DictQueryCond;
+    dictConf: import("../../types").DictQueryCond;
 }, {}>>;
 export default CdFormField;

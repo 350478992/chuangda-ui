@@ -4,8 +4,8 @@ export declare const CdRadioGroup: import("@chuangda/utils/dist/lib/withinstall"
         default: string;
     };
     list: {
-        type: import("vue").PropType<import("../../common/types").OptionType[]>;
-        default: () => import("../../common/types").OptionType[];
+        type: import("vue").PropType<import("../../types").OptionType[]>;
+        default: () => import("../../types").OptionType[];
     };
     size: {
         type: StringConstructor;
@@ -33,8 +33,8 @@ export declare const CdRadioGroup: import("@chuangda/utils/dist/lib/withinstall"
         default: string;
     };
     list: {
-        type: import("vue").PropType<import("../../common/types").OptionType[]>;
-        default: () => import("../../common/types").OptionType[];
+        type: import("vue").PropType<import("../../types").OptionType[]>;
+        default: () => import("../../types").OptionType[];
     };
     size: {
         type: StringConstructor;
@@ -65,7 +65,7 @@ export declare const CdRadioGroup: import("@chuangda/utils/dist/lib/withinstall"
     modelValue: string | unknown[];
     pVal: string;
     pId: string;
-    list: import("../../common/types").OptionType[];
+    list: import("../../types").OptionType[];
     allDisabled: boolean;
 }, {}>>;
 export default CdRadioGroup;
