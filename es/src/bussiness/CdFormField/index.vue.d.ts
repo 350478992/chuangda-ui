@@ -1,5 +1,5 @@
 import { PropType } from "vue/dist/vue";
-import { DictQueryCond } from '../../types';
+import { DictQueryCond } from "src/interfaces";
 declare const _sfc_main: import("vue").DefineComponent<{
     type: {
         type: StringConstructor;
@@ -87,7 +87,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }, {
     required: boolean;
     disabled: boolean;
-    modelValue: string | number | unknown[] | Date;
+    modelValue: string | number | Date | unknown[];
     width: string;
     readonly: boolean;
     color: string;

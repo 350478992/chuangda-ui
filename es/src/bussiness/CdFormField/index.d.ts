@@ -36,8 +36,8 @@ export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall")
         default: string;
     };
     dictConf: {
-        type: import("vue").PropType<import("../../types").DictQueryCond>;
-        default: () => import("../../types").DictQueryCond;
+        type: import("vue").PropType<import("../../interfaces").DictQueryCond>;
+        default: () => import("../../interfaces").DictQueryCond;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     type: {
@@ -77,19 +77,19 @@ export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall")
         default: string;
     };
     dictConf: {
-        type: import("vue").PropType<import("../../types").DictQueryCond>;
-        default: () => import("../../types").DictQueryCond;
+        type: import("vue").PropType<import("../../interfaces").DictQueryCond>;
+        default: () => import("../../interfaces").DictQueryCond;
     };
 }>> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     required: boolean;
     disabled: boolean;
-    modelValue: string | number | unknown[] | Date;
+    modelValue: string | number | Date | unknown[];
     width: string;
     readonly: boolean;
     color: string;
     dict: string;
-    dictConf: import("../../types").DictQueryCond;
+    dictConf: import("../../interfaces").DictQueryCond;
 }, {}>>;
 export default CdFormField;

@@ -4,8 +4,8 @@ export declare const CdCheckboxGroup: import("@chuangda/utils/dist/lib/withinsta
         default: string;
     };
     list: {
-        type: import("vue").PropType<import("../../types").OptionType[]>;
-        default: () => import("../../types").OptionType[];
+        type: import("vue").PropType<import("../../interfaces").OptionType[]>;
+        default: () => import("../../interfaces").OptionType[];
     };
     type: {
         type: StringConstructor;
@@ -29,8 +29,8 @@ export declare const CdCheckboxGroup: import("@chuangda/utils/dist/lib/withinsta
         default: string;
     };
     list: {
-        type: import("vue").PropType<import("../../types").OptionType[]>;
-        default: () => import("../../types").OptionType[];
+        type: import("vue").PropType<import("../../interfaces").OptionType[]>;
+        default: () => import("../../interfaces").OptionType[];
     };
     type: {
         type: StringConstructor;
@@ -57,6 +57,6 @@ export declare const CdCheckboxGroup: import("@chuangda/utils/dist/lib/withinsta
     modelValue: string | unknown[];
     pVal: string;
     pId: string;
-    list: import("../../types").OptionType[];
+    list: import("../../interfaces").OptionType[];
 }, {}>>;
 export default CdCheckboxGroup;
