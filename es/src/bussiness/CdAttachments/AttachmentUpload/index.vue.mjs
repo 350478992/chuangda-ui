@@ -1,10 +1,11 @@
-import { defineComponent as b, useAttrs as F, computed as $, reactive as w, resolveComponent as d, openBlock as C, createBlock as y, withCtx as s, createVNode as o, createElementVNode as r, createCommentVNode as x, mergeProps as B, unref as D } from "vue";
+import { defineComponent as _, useAttrs as F, computed as $, reactive as D, resolveComponent as d, openBlock as C, createBlock as y, withCtx as s, createVNode as l, createElementVNode as r, createCommentVNode as w, mergeProps as x, unref as B } from "vue";
 import "./style/index.css";
-import O from "../../../basic/CdModal/index.vue.mjs";
+import W from "../../../basic/CdModal/index.vue.mjs";
 import m from "../../../basic/CdSelect/index.vue.mjs";
+import O from "./Qrcode.vue.mjs";
 import S from "./UploadBtn.vue.mjs";
-const W = { class: "title-box" }, J = /* @__PURE__ */ r("p", { class: "innerWrap-item-ttl" }, "方式一: 本地选择上传", -1), L = /* @__PURE__ */ r("p", { class: "innerWrap-item-ttl" }, "方式二: 手机扫码上传", -1), U = b({ name: "CdAttachments" }), R = /* @__PURE__ */ b({
-  ...U,
+const J = { class: "title-box" }, L = /* @__PURE__ */ r("p", { class: "innerWrap-item-ttl" }, "方式一: 本地选择上传", -1), U = /* @__PURE__ */ r("p", { class: "innerWrap-item-ttl" }, "方式二: 手机扫码上传", -1), k = _({ name: "CdAttachments" }), H = /* @__PURE__ */ _({
+  ...k,
   props: {
     modelValue: { type: Boolean },
     fileTitleShow: { type: Boolean, default: !0 },
@@ -18,24 +19,24 @@ const W = { class: "title-box" }, J = /* @__PURE__ */ r("p", { class: "innerWrap
     attitle: { default: "" }
   },
   emits: ["update:modelValue"],
-  setup(_, { emit: V }) {
-    const l = _, c = F(), n = $({
-      get: () => l.modelValue,
+  setup(c, { emit: b }) {
+    const o = c, V = F(), n = $({
+      get: () => o.modelValue,
       set: () => {
-        V("update:modelValue");
+        b("update:modelValue");
       }
-    }), e = w({
-      attrefsysid: l.attrefsysid,
-      atttype: l.atttype,
-      attCategory: l.attCategory,
-      attClass: l.attClass,
-      attitle: l.attitle
+    }), e = D({
+      attrefsysid: o.attrefsysid,
+      atttype: o.atttype,
+      attCategory: o.attCategory,
+      attClass: o.attClass,
+      attitle: o.attitle
     }), p = (u) => {
       u === 1 && (e.attClass = ""), e.attitle = "";
     };
     return (u, t) => {
       const v = d("Form-item"), i = d("Col"), f = d("Row"), g = d("Form");
-      return C(), y(O, {
+      return C(), y(W, {
         class: "cd-attchemnt-upload",
         modelValue: n.value,
         "onUpdate:modelValue": t[6] || (t[6] = (a) => n.value = a),
@@ -44,47 +45,47 @@ const W = { class: "title-box" }, J = /* @__PURE__ */ r("p", { class: "innerWrap
         onOnCancel: t[7] || (t[7] = (a) => n.value = !1)
       }, {
         default: s(() => [
-          o(g, {
+          l(g, {
             model: e,
             "label-width": 100
           }, {
             default: s(() => [
-              l.fileTitleShow ? (C(), y(f, { key: 0 }, {
+              o.fileTitleShow ? (C(), y(f, { key: 0 }, {
                 default: s(() => [
-                  o(i, { span: 24 }, {
+                  l(i, { span: 24 }, {
                     default: s(() => [
-                      o(v, {
+                      l(v, {
                         label: "附件标题:",
                         prop: "attitle",
                         "label-width": 85
                       }, {
                         default: s(() => [
-                          r("div", W, [
-                            o(m, {
+                          r("div", J, [
+                            l(m, {
                               class: "title-box-item",
                               modelValue: e.attCategory,
                               "onUpdate:modelValue": t[0] || (t[0] = (a) => e.attCategory = a),
                               type: "SCFJFL2.0",
                               "p-val": "SCFJFL2.0",
-                              disabled: l.attCategoryDisabled,
+                              disabled: o.attCategoryDisabled,
                               onOnChange: t[1] || (t[1] = (a) => p(1))
                             }, null, 8, ["modelValue", "disabled"]),
-                            o(m, {
+                            l(m, {
                               class: "title-box-item",
                               modelValue: e.attClass,
                               "onUpdate:modelValue": t[2] || (t[2] = (a) => e.attClass = a),
                               type: "SCFJFL2.0",
                               "p-val": e.attCategory,
-                              disabled: l.attClassDisabled,
+                              disabled: o.attClassDisabled,
                               onOnChange: t[3] || (t[3] = (a) => p(2))
                             }, null, 8, ["modelValue", "p-val", "disabled"]),
-                            o(m, {
+                            l(m, {
                               class: "title-box-item",
                               modelValue: e.attitle,
                               "onUpdate:modelValue": t[4] || (t[4] = (a) => e.attitle = a),
                               type: "SCFJFL2.0",
                               "p-val": e.attClass,
-                              disabled: l.attitleDisabled
+                              disabled: o.attitleDisabled
                             }, null, 8, ["modelValue", "p-val", "disabled"])
                           ])
                         ]),
@@ -95,30 +96,34 @@ const W = { class: "title-box" }, J = /* @__PURE__ */ r("p", { class: "innerWrap
                   })
                 ]),
                 _: 1
-              })) : x("", !0),
-              o(f, { class: "innerWrap" }, {
+              })) : w("", !0),
+              l(f, { class: "innerWrap" }, {
                 default: s(() => [
-                  o(i, {
+                  l(i, {
                     class: "innerWrap-item item-l",
                     span: 12
                   }, {
                     default: s(() => [
-                      J,
-                      o(S, B({
+                      L,
+                      l(S, x({
                         class: "innerWrap-item-cont",
                         formObj: e
-                      }, D(c), {
+                      }, B(V), {
                         onOnCancel: t[5] || (t[5] = (a) => n.value = !1)
                       }), null, 16, ["formObj"])
                     ]),
                     _: 1
                   }),
-                  o(i, {
+                  l(i, {
                     class: "innerWrap-item",
                     span: 12
                   }, {
                     default: s(() => [
-                      L
+                      U,
+                      l(O, {
+                        class: "innerWrap-item-cont",
+                        formData: e
+                      }, null, 8, ["formData"])
                     ]),
                     _: 1
                   })
@@ -135,5 +140,5 @@ const W = { class: "title-box" }, J = /* @__PURE__ */ r("p", { class: "innerWrap
   }
 });
 export {
-  R as default
+  H as default
 };
