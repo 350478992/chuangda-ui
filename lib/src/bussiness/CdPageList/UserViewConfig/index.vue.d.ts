@@ -64,7 +64,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: boolean;
     title: string;
     draggable: boolean;
-    tableHeight: string;
     id: string;
+    tableHeight: string;
 }, {}>;
 export default _sfc_main;
