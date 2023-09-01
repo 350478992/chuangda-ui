@@ -1,6 +1,7 @@
 .form-box {
   width: 100%;
-  /*background-color: white;*/
+  height: 100%;
+  overflow: auto;
 }
 /*表单样式*/
 .ivu-form-item {

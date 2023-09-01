@@ -1,4 +1,4 @@
-export declare const CdLoginForm: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdLoginForm: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     logo: StringConstructor;
     systemTitle: StringConstructor;
     isNeedValidateCode: BooleanConstructor;

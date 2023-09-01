@@ -1,4 +1,4 @@
-export declare const CdCascader: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdCascader: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     size: StringConstructor;
     disabled: BooleanConstructor;
     filterable: BooleanConstructor;

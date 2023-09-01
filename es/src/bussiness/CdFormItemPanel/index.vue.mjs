@@ -1,15 +1,16 @@
-import { defineComponent as j, reactive as D, ref as K, computed as M, onMounted as H, resolveComponent as p, openBlock as r, createElementBlock as l, withDirectives as J, createVNode as s, vShow as Q, createElementVNode as y, withCtx as i, Fragment as m, renderList as C, createBlock as b, normalizeStyle as x, normalizeClass as z, toDisplayString as w, createTextVNode as O, unref as _, renderSlot as k, createCommentVNode as P } from "vue";
-import V from "@/config";
+import { defineComponent as q, ref as w, onMounted as J, resolveComponent as h, openBlock as l, createElementBlock as s, withDirectives as V, createVNode as u, vShow as x, withCtx as r, Fragment as p, renderList as v, createBlock as P, normalizeStyle as N, createElementVNode as S, normalizeClass as T, toDisplayString as C, createTextVNode as $, createCommentVNode as g, unref as I, renderSlot as j, createSlots as Q } from "vue";
+import "./style/index.css";
+import F from "@/config";
 import { getFormConfig as X } from "@/api/system/layoutApi";
-import { CdFormField as $ } from "../CdFormField/index.mjs";
+import { CdFormField as L } from "../CdFormField/index.mjs";
 import { useLocalStorage as Y } from "@/use/useLocalStorage";
 import { handleResponse as Z } from "@/util";
-const G = { class: "form-box" }, ee = { class: "group-box" }, te = { class: "font-700" }, oe = { slot: "content" }, ae = j({ name: "CdFormItemPanel" }), me = /* @__PURE__ */ j({
+const G = { class: "form-box" }, ee = { class: "group-box" }, te = { class: "font-700" }, ae = q({ name: "CdFormItemPanel" }), me = /* @__PURE__ */ q({
   ...ae,
   props: {
     size: {
       type: String,
-      default: V.defaultFormSize || "default"
+      default: F.defaultFormSize || "default"
     },
     noShowFieldControl: {
       type: Array,
@@ -57,196 +58,190 @@ const G = { class: "form-box" }, ee = { class: "group-box" }, te = { class: "fon
       default: () => []
     },
     // 默认不展开的分组下标[0,1 , 2 ...]
-    defaultClosePanel: {
+    defaultClosePanels: {
       type: Array,
       default: () => []
     }
   },
   emits: ["renderPercentPath"],
-  setup(n, { emit: ne }) {
-    const u = n, d = D({
-      formConfig: {
-        // 表单配置
-        id: "",
-        no: "",
-        name: "",
-        type: "",
-        formcol: 1,
-        // 表单风格，意思是，一行占几列
-        dictColumns: [],
-        groups: [],
-        columns: []
-      },
-      renderPercent: 1,
-      showRenderPercent: !1
-    }), S = K(V.showSubformPanelProp), I = M(() => 24 / d.formConfig.formcol), L = (e) => {
-      var a;
-      return (a = u.defaultClosePanel) == null ? void 0 : a.includes(e);
-    }, T = async () => {
+  setup(n, { emit: oe }) {
+    const i = n, _ = w(F.showSubformPanelProp), B = w(1), W = w(!1), k = w([]), f = w({
+      // 表单配置
+      id: "",
+      no: "",
+      name: "",
+      type: "",
+      formcol: 1,
+      // 表单风格，意思是，一行占几列
+      dictColumns: [],
+      groups: [],
+      columns: []
+    }), A = async () => {
       let {
         value: e,
-        setValue: a,
-        removeItem: h
-      } = Y(u.viewNo, "");
-      if (!(V.viewConfigCache && e)) {
-        const f = await X(u.viewNo);
-        Z(f, () => {
-          e = f.data, e && (d.formConfig = e, a(e), F(e.columns), W(e.groups));
-        });
+        setValue: o
+      } = Y(i.viewNo, "");
+      if (!(F.viewConfigCache && e)) {
+        const d = await X(i.viewNo);
+        Z(d, () => {
+          e = d.data, e && o(e);
+        }, !1);
       }
-    }, F = (e = []) => {
-      e.length > 0 && e.forEach((a) => q(a));
-    }, W = (e = []) => {
-      e.length > 0 && e.forEach((a) => {
-        F((a == null ? void 0 : a.columns) ?? []);
-      }), d.formConfig.groups = e;
-    }, q = (e) => {
-      const { compLength: a, dictType: h, dictParentId: f, dictParentValue: g } = e;
-      e.viewId = d.formConfig.id, e.compLength = a ? `${a}px` : "100%", e.dictConf = { dictType: h || "", dictParentId: f || "", dictParentValue: g || "" }, e.colWidth = e.isLine === "1" ? 24 : I.value;
-    }, N = (e) => {
-      if (u.showRequired)
+      e.formcol && (e.formcol = parseInt(e.formcol)), f.value = e, z(e.columns), E(e.groups), console.info("🚀 ~ file:index method: line:223 -----", e);
+    }, z = (e = []) => {
+      e.length > 0 && e.forEach((o) => U(o));
+    }, E = (e = []) => {
+      e.length > 0 && e.forEach((o, d) => {
+        var m;
+        z((o == null ? void 0 : o.columns) ?? []), (m = i.defaultClosePanels) != null && m.includes(d) || k.value.push(`${d}`);
+      }), f.value.groups = e;
+    }, U = (e) => {
+      const { compLength: o, dictType: d, dictParentId: m, dictParentValue: b } = e;
+      e.viewId = f.value.id, e.compLength = o ? `${o}px` : "100%", e.dictConf = { type: d || "", parentId: m || "", parentValue: b || "" }, e.colWidth = e.isLine === "1" ? 24 : 24 / f.value.formcol;
+    }, O = (e) => {
+      if (i.showRequired)
         return { required: e.isNull === "1", message: "请填写" + e.comments, trigger: "blur" };
-    }, B = (e) => {
-      var a;
-      return e.colWidth === 24 ? e.showType === "textarea" ? "width:98%;" : (a = u.fullItemKeys) != null && a.includes(e.name) ? "width:100%;" : `width:${1 / d.formConfig.formcol * 100}%;` : "width: 100%;";
+    }, D = (e) => {
+      var o;
+      return e.colWidth === 24 ? e.showType === "textarea" ? "width:98%;" : (o = i.fullItemKeys) != null && o.includes(e.name) ? "width:100%;" : `width:${1 / f.value.formcol * 100}%;` : "width: 100%;";
     };
-    return H(() => {
-      u.viewNo && d.formConfig.columns.length === 0 && T();
-    }), (e, a) => {
-      const h = p("Progress"), f = p("Form-item"), g = p("Col"), R = p("Row"), A = p("Panel"), E = p("Collapse");
-      return r(), l("div", G, [
-        J(s(h, {
-          percent: d.renderPercent,
+    return J(() => {
+      console.info("🚀 ~ file:index method: line:313 -----", i.slots), i.viewNo && f.value.columns.length === 0 && A();
+    }), (e, o) => {
+      const d = h("Progress"), m = h("Form-item"), b = h("Col"), R = h("Row"), K = h("Panel"), M = h("Collapse");
+      return l(), s("div", G, [
+        V(u(d, {
+          percent: B.value,
           "hide-info": ""
         }, null, 8, ["percent"]), [
-          [Q, d.showRenderPercent]
+          [x, W.value]
         ]),
-        y("div", null, [
-          s(R, null, {
-            default: i(() => [
-              (r(!0), l(m, null, C(d.formConfig.columns, (t) => (r(), b(g, {
-                span: t.colWidth,
-                key: t.id
-              }, {
-                default: i(() => [
-                  s(f, {
-                    rules: N(t),
-                    style: x(t.colWidth == 24 && t.showType == "textarea" ? "width:98%;" : ""),
-                    label: t.comments,
-                    "label-width": 200,
-                    prop: t.name
-                  }, {
-                    default: i(() => [
-                      y("span", {
-                        slot: "label",
-                        class: z(t.styleName)
-                      }, w(t.comments), 3),
-                      O(" " + w(S.value ? `${t.name},${t.dbName}` : "") + " ", 1),
-                      s(_($), {
-                        modelValue: n.formObject[n.attrPrefix + t.name],
-                        "onUpdate:modelValue": (c) => n.formObject[n.attrPrefix + t.name] = c,
-                        type: t.showType,
-                        size: n.size,
-                        name: t.name,
-                        prop: t.name,
-                        disabled: t.isReadonly === "1",
-                        readonly: t.isReadonly === "1" || n.readOnly,
-                        width: t.compLength,
-                        dictConf: t.dictConf
-                      }, {
-                        default: i(() => [
-                          (r(!0), l(m, null, C(n.slots, (c, o) => (r(), l(m, null, [
-                            t.name == c ? (r(), l("div", { key: o }, [
-                              k(e.$slots, c)
-                            ])) : P("", !0)
-                          ], 64))), 256))
-                        ]),
-                        _: 2
-                      }, 1032, ["modelValue", "onUpdate:modelValue", "type", "size", "name", "prop", "disabled", "readonly", "width", "dictConf"])
-                    ]),
-                    _: 2
-                  }, 1032, ["rules", "style", "label", "prop"])
-                ]),
-                _: 2
-              }, 1032, ["span"]))), 128))
-            ]),
-            _: 3
-          })
-        ]),
-        y("div", ee, [
-          (r(!0), l(m, null, C(d.formConfig.groups, (t, c) => (r(), l("div", {
-            key: t.id
-          }, [
-            s(E, {
-              class: "my-collapse",
-              value: t.id
+        u(R, null, {
+          default: r(() => [
+            (l(!0), s(p, null, v(f.value.columns, (t) => V((l(), P(b, {
+              span: t.colWidth,
+              key: t.id
             }, {
-              default: i(() => [
-                s(A, {
-                  name: L(c) ? "" : t.id
+              default: r(() => [
+                u(m, {
+                  rules: O(t),
+                  style: N(t.colWidth == 24 && t.showType == "textarea" ? "width:98%;" : ""),
+                  label: t.comments,
+                  "label-width": 200,
+                  prop: t.name
                 }, {
-                  default: i(() => [
-                    y("span", te, w(t.name), 1),
-                    y("div", oe, [
-                      s(R, null, {
-                        default: i(() => [
-                          (r(!0), l(m, null, C(t.columns, (o) => (r(), b(g, {
-                            span: o.colWidth,
-                            key: o.id
-                          }, {
-                            default: i(() => [
-                              n.noShowFieldControl.indexOf(o.name) == -1 ? (r(), b(f, {
-                                key: 0,
-                                rules: N(o),
-                                style: x(B(o)),
-                                label: o.comments,
-                                "label-width": 200,
-                                prop: o.name
-                              }, {
-                                default: i(() => [
-                                  y("span", {
-                                    slot: "label",
-                                    class: z(o.styleName)
-                                  }, w(o.comments), 3),
-                                  O(" " + w(S.value ? o.name : "") + " ", 1),
-                                  s(_($), {
-                                    modelValue: n.formObject[o.name],
-                                    "onUpdate:modelValue": (v) => n.formObject[o.name] = v,
-                                    type: o.showType,
-                                    size: n.size,
-                                    name: o.name,
-                                    prop: o.name,
-                                    readonly: o.isReadonly === "1" || n.readOnly,
-                                    disabled: o.isReadonly === "1",
-                                    width: o.compLength,
-                                    dictConf: o.dictConf
-                                  }, {
-                                    default: i(() => [
-                                      (r(!0), l(m, null, C(n.slots, (v, U) => (r(), l(m, null, [
-                                        o.name == v ? (r(), l("div", { key: U }, [
-                                          k(e.$slots, v)
-                                        ])) : P("", !0)
-                                      ], 64))), 256))
-                                    ]),
-                                    _: 2
-                                  }, 1032, ["modelValue", "onUpdate:modelValue", "type", "size", "name", "prop", "readonly", "disabled", "width", "dictConf"])
-                                ]),
-                                _: 2
-                              }, 1032, ["rules", "style", "label", "prop"])) : P("", !0)
-                            ]),
-                            _: 2
-                          }, 1032, ["span"]))), 128))
-                        ]),
-                        _: 2
-                      }, 1024)
-                    ])
+                  default: r(() => [
+                    S("span", {
+                      slot: "label",
+                      class: T(t.styleName)
+                    }, C(t.comments), 3),
+                    t.showType !== "hidden" ? (l(), s(p, { key: 0 }, [
+                      $(C(_.value ? `${t.name},${t.dbName}` : ""), 1)
+                    ], 64)) : g("", !0),
+                    u(I(L), {
+                      modelValue: n.formObject[n.attrPrefix + t.name],
+                      "onUpdate:modelValue": (y) => n.formObject[n.attrPrefix + t.name] = y,
+                      type: t.showType,
+                      size: n.size,
+                      name: t.name,
+                      prop: t.name,
+                      disabled: t.isReadonly === "1",
+                      readonly: t.isReadonly === "1" || n.readOnly,
+                      width: t.compLength,
+                      dictConf: t.dictConf
+                    }, {
+                      default: r(() => [
+                        (l(!0), s(p, null, v(n.slots, (y, a) => (l(), s(p, null, [
+                          t.name == y ? (l(), s("div", { key: a }, [
+                            j(e.$slots, y)
+                          ])) : g("", !0)
+                        ], 64))), 256))
+                      ]),
+                      _: 2
+                    }, 1032, ["modelValue", "onUpdate:modelValue", "type", "size", "name", "prop", "disabled", "readonly", "width", "dictConf"])
                   ]),
                   _: 2
-                }, 1032, ["name"])
+                }, 1032, ["rules", "style", "label", "prop"])
               ]),
               _: 2
-            }, 1032, ["value"])
-          ]))), 128))
+            }, 1032, ["span"])), [
+              [x, t.showType !== "hidden"]
+            ])), 128))
+          ]),
+          _: 3
+        }),
+        S("div", ee, [
+          u(M, { "model-value": k.value }, {
+            default: r(() => [
+              (l(!0), s(p, null, v(f.value.groups, (t, y) => (l(), P(K, {
+                name: `${y}`,
+                key: t.id
+              }, {
+                content: r(() => [
+                  u(R, null, {
+                    default: r(() => [
+                      (l(!0), s(p, null, v(t.columns, (a) => V((l(), P(b, {
+                        span: a.colWidth,
+                        key: a.id
+                      }, {
+                        default: r(() => [
+                          n.noShowFieldControl.indexOf(a.name) == -1 ? (l(), P(m, {
+                            key: 0,
+                            rules: O(a),
+                            style: N(D(a)),
+                            "label-width": 200,
+                            prop: a.name
+                          }, {
+                            label: r(() => [
+                              S("div", {
+                                class: T(a.styleName)
+                              }, C(a.comments), 3)
+                            ]),
+                            default: r(() => [
+                              a.showType !== "hidden" ? (l(), s(p, { key: 0 }, [
+                                $(C(_.value ? a.name : ""), 1)
+                              ], 64)) : g("", !0),
+                              u(I(L), {
+                                modelValue: n.formObject[a.name],
+                                "onUpdate:modelValue": (c) => n.formObject[a.name] = c,
+                                type: a.showType,
+                                size: n.size,
+                                name: a.name,
+                                prop: a.name,
+                                readonly: a.isReadonly === "1" || n.readOnly,
+                                disabled: a.isReadonly === "1",
+                                width: a.compLength,
+                                dictConf: a.dictConf
+                              }, Q({ _: 2 }, [
+                                v(i.slots, (c, H) => ({
+                                  name: c,
+                                  fn: r(() => [
+                                    a.name == c ? (l(), s("div", { key: H }, [
+                                      j(e.$slots, c)
+                                    ])) : g("", !0)
+                                  ])
+                                }))
+                              ]), 1032, ["modelValue", "onUpdate:modelValue", "type", "size", "name", "prop", "readonly", "disabled", "width", "dictConf"])
+                            ]),
+                            _: 2
+                          }, 1032, ["rules", "style", "prop"])) : g("", !0)
+                        ]),
+                        _: 2
+                      }, 1032, ["span"])), [
+                        [x, a.showType !== "hidden"]
+                      ])), 128))
+                    ]),
+                    _: 2
+                  }, 1024)
+                ]),
+                default: r(() => [
+                  S("span", te, C(t.name), 1)
+                ]),
+                _: 2
+              }, 1032, ["name"]))), 128))
+            ]),
+            _: 3
+          }, 8, ["model-value"])
         ])
       ]);
     };

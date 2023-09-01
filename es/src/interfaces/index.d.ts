@@ -32,7 +32,7 @@ export interface Config {
     isSearchTableData?: boolean;
     table?: SortConfig;
     defaultFormSize?: string;
-    viewConfigCache: boolean;
+    viewConfigCache?: boolean;
     equipType?: EquipType;
     optType?: Object;
     operLogType?: Object;
@@ -66,9 +66,6 @@ export interface DictQueryCond {
     type: string | undefined;
     parentId?: string | undefined;
     parentValue?: string | undefined;
-    dictType?: string | undefined;
-    dictParentId?: string | undefined;
-    dictParentValue?: string | undefined;
 }
 export interface DictItemQueryCond {
     type: string | undefined;

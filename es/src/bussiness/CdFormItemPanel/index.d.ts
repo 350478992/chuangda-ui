@@ -1,4 +1,4 @@
-export declare const CdFormItemPanel: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdFormItemPanel: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     size: {
         type: StringConstructor;
         default: any;
@@ -47,7 +47,7 @@ export declare const CdFormItemPanel: import("@chuangda/utils/dist/lib/withinsta
         type: ArrayConstructor;
         default: () => never[];
     };
-    defaultClosePanel: {
+    defaultClosePanels: {
         type: ArrayConstructor;
         default: () => never[];
     };
@@ -100,15 +100,15 @@ export declare const CdFormItemPanel: import("@chuangda/utils/dist/lib/withinsta
         type: ArrayConstructor;
         default: () => never[];
     };
-    defaultClosePanel: {
+    defaultClosePanels: {
         type: ArrayConstructor;
         default: () => never[];
     };
 }>> & {
     onRenderPercentPath?: ((...args: any[]) => any) | undefined;
 }, {
-    size: string;
     slots: unknown[];
+    size: string;
     noShowFieldControl: unknown[];
     readOnly: boolean;
     showRequired: boolean;
@@ -116,6 +116,6 @@ export declare const CdFormItemPanel: import("@chuangda/utils/dist/lib/withinsta
     attrPrefix: string;
     ruleValidate: Record<string, any>;
     fullItemKeys: unknown[];
-    defaultClosePanel: unknown[];
+    defaultClosePanels: unknown[];
 }, {}>>;
 export default CdFormItemPanel;

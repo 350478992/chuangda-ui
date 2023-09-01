@@ -1,4 +1,4 @@
-export declare const CdUnitList: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdUnitList: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     modelValue: BooleanConstructor;
     equclacode: {
         type: StringConstructor;

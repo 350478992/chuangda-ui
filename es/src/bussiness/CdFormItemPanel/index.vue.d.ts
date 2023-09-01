@@ -49,7 +49,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: ArrayConstructor;
         default: () => never[];
     };
-    defaultClosePanel: {
+    defaultClosePanels: {
         type: ArrayConstructor;
         default: () => never[];
     };
@@ -102,15 +102,15 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: ArrayConstructor;
         default: () => never[];
     };
-    defaultClosePanel: {
+    defaultClosePanels: {
         type: ArrayConstructor;
         default: () => never[];
     };
 }>> & {
     onRenderPercentPath?: ((...args: any[]) => any) | undefined;
 }, {
-    size: string;
     slots: unknown[];
+    size: string;
     noShowFieldControl: unknown[];
     readOnly: boolean;
     showRequired: boolean;
@@ -118,6 +118,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
     attrPrefix: string;
     ruleValidate: Record<string, any>;
     fullItemKeys: unknown[];
-    defaultClosePanel: unknown[];
+    defaultClosePanels: unknown[];
 }, {}>;
 export default _sfc_main;

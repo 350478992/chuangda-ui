@@ -1,4 +1,4 @@
-export declare const CdButton: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdButton: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     type: {
         type: import("vue").PropType<string | undefined>;
         required: false;

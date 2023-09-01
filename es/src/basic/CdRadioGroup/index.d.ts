@@ -1,4 +1,4 @@
-export declare const CdRadioGroup: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdRadioGroup: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     modelValue: {
         type: (StringConstructor | ArrayConstructor)[];
         default: string;

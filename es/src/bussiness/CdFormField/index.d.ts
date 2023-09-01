@@ -1,4 +1,4 @@
-export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdFormField: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     type: {
         type: StringConstructor;
         required: true;
@@ -28,10 +28,6 @@ export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall")
         default: string;
     };
     color: {
-        type: StringConstructor;
-        default: string;
-    };
-    dict: {
         type: StringConstructor;
         default: string;
     };
@@ -72,10 +68,6 @@ export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall")
         type: StringConstructor;
         default: string;
     };
-    dict: {
-        type: StringConstructor;
-        default: string;
-    };
     dictConf: {
         type: import("vue").PropType<import("../../interfaces").DictQueryCond>;
         default: () => import("../../interfaces").DictQueryCond;
@@ -85,11 +77,10 @@ export declare const CdFormField: import("@chuangda/utils/dist/lib/withinstall")
 }, {
     required: boolean;
     disabled: boolean;
-    modelValue: string | number | Date | unknown[];
+    modelValue: string | number | unknown[] | Date;
     width: string;
     readonly: boolean;
     color: string;
-    dict: string;
     dictConf: import("../../interfaces").DictQueryCond;
 }, {}>>;
 export default CdFormField;

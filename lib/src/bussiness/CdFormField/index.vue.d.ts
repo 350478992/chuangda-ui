@@ -33,10 +33,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
-    dict: {
-        type: StringConstructor;
-        default: string;
-    };
     dictConf: {
         type: PropType<DictQueryCond>;
         default: () => DictQueryCond;
@@ -74,10 +70,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
-    dict: {
-        type: StringConstructor;
-        default: string;
-    };
     dictConf: {
         type: PropType<DictQueryCond>;
         default: () => DictQueryCond;
@@ -87,11 +79,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }, {
     required: boolean;
     disabled: boolean;
-    modelValue: string | number | Date | unknown[];
+    modelValue: string | number | unknown[] | Date;
     width: string;
     readonly: boolean;
     color: string;
-    dict: string;
     dictConf: DictQueryCond;
 }, {}>;
 export default _sfc_main;
