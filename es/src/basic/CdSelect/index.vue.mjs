@@ -1,9 +1,9 @@
-import { defineComponent as B, ref as y, watch as g, computed as h, onMounted as O, resolveComponent as C, openBlock as u, createElementBlock as k, unref as c, createBlock as p, createCommentVNode as V, mergeProps as x, withCtx as S, createTextVNode as q, Fragment as M, renderList as $, toDisplayString as D } from "vue";
+import { defineComponent as B, ref as y, watch as g, computed as h, onMounted as O, resolveComponent as C, openBlock as o, createElementBlock as k, unref as c, createBlock as p, createCommentVNode as V, mergeProps as x, withCtx as S, createTextVNode as q, Fragment as M, renderList as $, toDisplayString as A } from "vue";
 import "./style/index.css";
-import { Message as E } from "view-ui-plus";
-import { apiFindDictList as N } from "@/api/system";
-const Q = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
-  ...Q,
+import { Message as D } from "view-ui-plus";
+import { apiFindDictList as E } from "@/api/system";
+const N = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
+  ...N,
   props: {
     // 多选时，数据类型为数组
     modelValue: {
@@ -12,7 +12,7 @@ const Q = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
     },
     // 自定义下拉数据
     list: {
-      // interfaces: Array as PropType<OptionType[]>,
+      type: Array,
       default: () => []
     },
     equclacode: {
@@ -56,9 +56,9 @@ const Q = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
     }
   },
   emits: ["update:modelValue", "on-change", "on-query"],
-  setup(o, { emit: f }) {
-    const t = o;
-    let a = y([]), r = y(!1), b = y(t.empty);
+  setup(r, { emit: f }) {
+    const t = r;
+    let a = y([]), s = y(!1), b = y(t.empty);
     g(
       () => t.pVal,
       (e) => v()
@@ -72,7 +72,7 @@ const Q = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
       },
       { deep: !0 }
     );
-    const n = h({
+    const u = h({
       get() {
         return t.modelValue;
       },
@@ -88,23 +88,24 @@ const Q = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
     }, I = (e) => {
       f("on-query", e || {});
     }, v = () => {
-      t.list.length > 0 ? (a.value = t.list, t.selectFirst && !n.value && (n.value = a.value[0].value)) : t.list.length === 0 && t.type && w();
+      var e, n;
+      ((e = t.list) == null ? void 0 : e.length) > 0 ? (a.value = t.list, t.selectFirst && !u.value && (u.value = a.value[0].value)) : ((n = t.list) == null ? void 0 : n.length) === 0 && t.type && w();
     }, w = async () => {
-      const { type: e, pId: s, pVal: i } = t;
-      r.value = !0;
-      const d = await N({ type: e, parentId: s, parentValue: i }), { isSuccess: l, errorMsg: m, errormsg: z, data: L } = d;
-      l ? (a.value = L || [], t.selectFirst && a.value.length > 0 && !n.value && (n.value = a.value[0].value)) : E.error(`数据字典错误：${m || z}`), r.value = !1;
+      const { type: e, pId: n, pVal: i } = t;
+      s.value = !0;
+      const d = await E({ type: e, parentId: n, parentValue: i }), { isSuccess: l, errorMsg: m, errormsg: z, data: L } = d;
+      l ? (a.value = L || [], t.selectFirst && a.value.length > 0 && !u.value && (u.value = a.value[0].value)) : D.error(`数据字典错误：${m || z}`), s.value = !1;
     };
-    return (e, s) => {
+    return (e, n) => {
       const i = C("Select"), d = C("Option");
-      return u(), k("div", null, [
-        c(r) ? (u(), p(i, { key: 0 })) : V("", !0),
-        c(r) ? V("", !0) : (u(), p(i, x({
+      return o(), k("div", null, [
+        c(s) ? (o(), p(i, { key: 0 })) : V("", !0),
+        c(s) ? V("", !0) : (o(), p(i, x({
           key: 1,
-          modelValue: n.value,
-          "onUpdate:modelValue": s[0] || (s[0] = (l) => n.value = l),
-          size: o.size,
-          "label-in-value": o.labelInValue,
+          modelValue: u.value,
+          "onUpdate:modelValue": n[0] || (n[0] = (l) => u.value = l),
+          size: r.size,
+          "label-in-value": r.labelInValue,
           transfer: !0,
           clearable: ""
         }, e.$attrs, {
@@ -112,7 +113,7 @@ const Q = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
           onOnQueryChange: I
         }), {
           default: S(() => [
-            c(b) ? (u(), p(d, {
+            c(b) ? (o(), p(d, {
               key: 0,
               value: ""
             }, {
@@ -121,14 +122,14 @@ const Q = B({ name: "CdSelect" }), U = /* @__PURE__ */ B({
               ]),
               _: 1
             })) : V("", !0),
-            (u(!0), k(M, null, $(c(a), (l, m) => (u(), p(d, {
-              disabled: _.value && l.value != o.equclacode,
+            (o(!0), k(M, null, $(c(a), (l, m) => (o(), p(d, {
+              disabled: _.value && l.value != r.equclacode,
               value: l.value,
               label: l.label,
               key: `${l.value}${m}`
             }, {
               default: S(() => [
-                q(D(l.label), 1)
+                q(A(l.label), 1)
               ]),
               _: 2
             }, 1032, ["disabled", "value", "label"]))), 128))

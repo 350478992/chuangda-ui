@@ -1,6 +1,11 @@
 import { PropType } from "vue";
 import { AnyFieldObj } from '../../interfaces';
+import { FormItemConfig } from '../../bussiness/CdFormItemPanel/interfaces';
 declare const _sfc_main: import("vue").DefineComponent<{
+    formItemConfig: {
+        type: PropType<FormItemConfig>;
+        default: () => any;
+    };
     size: {
         type: StringConstructor;
         default: any;
@@ -54,6 +59,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: () => never[];
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "renderPercentPath"[], "renderPercentPath", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    formItemConfig: {
+        type: PropType<FormItemConfig>;
+        default: () => any;
+    };
     size: {
         type: StringConstructor;
         default: any;
@@ -109,8 +118,9 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }>> & {
     onRenderPercentPath?: ((...args: any[]) => any) | undefined;
 }, {
-    slots: unknown[];
     size: string;
+    slots: unknown[];
+    formItemConfig: FormItemConfig;
     noShowFieldControl: unknown[];
     readOnly: boolean;
     showRequired: boolean;

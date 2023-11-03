@@ -1,4 +1,4 @@
-export declare const CdDatePickerRange: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdDatePickerRange: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     keys: {
         type: import("vue").PropType<string[]>;
         required: true;

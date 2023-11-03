@@ -9,7 +9,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: StringConstructor;
     type: {
         type: StringConstructor;
-        default: string;
+        required: true;
     };
     pVal: StringConstructor;
     pId: {
@@ -66,7 +66,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: StringConstructor;
     type: {
         type: StringConstructor;
-        default: string;
+        required: true;
     };
     pVal: StringConstructor;
     pId: {
@@ -118,7 +118,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
     "onGet-last-label"?: ((...args: any[]) => any) | undefined;
     "onOn-change"?: ((...args: any[]) => any) | undefined;
 }, {
-    type: string;
     disabled: boolean;
     filterable: boolean;
     clearable: boolean;

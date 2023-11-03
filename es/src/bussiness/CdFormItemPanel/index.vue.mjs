@@ -1,16 +1,18 @@
-import { defineComponent as q, ref as w, onMounted as J, resolveComponent as h, openBlock as l, createElementBlock as s, withDirectives as V, createVNode as u, vShow as x, withCtx as r, Fragment as p, renderList as v, createBlock as P, normalizeStyle as N, createElementVNode as S, normalizeClass as T, toDisplayString as C, createTextVNode as $, createCommentVNode as g, unref as I, renderSlot as j, createSlots as Q } from "vue";
+import { defineComponent as W, ref as w, watch as Q, onMounted as X, resolveComponent as c, openBlock as r, createElementBlock as o, withDirectives as V, createVNode as u, vShow as O, withCtx as d, Fragment as y, renderList as v, createBlock as P, normalizeStyle as $, createElementVNode as S, normalizeClass as j, toDisplayString as C, createTextVNode as N, createCommentVNode as b, unref as I, renderSlot as q, createSlots as Y } from "vue";
 import "./style/index.css";
-import F from "@/config";
-import { getFormConfig as X } from "@/api/system/layoutApi";
+import B from "@/config";
 import { CdFormField as L } from "../CdFormField/index.mjs";
-import { useLocalStorage as Y } from "@/use/useLocalStorage";
-import { handleResponse as Z } from "@/util";
-const G = { class: "form-box" }, ee = { class: "group-box" }, te = { class: "font-700" }, ae = q({ name: "CdFormItemPanel" }), me = /* @__PURE__ */ q({
-  ...ae,
+import { defaultFormItemConfig as k } from "@/common/const";
+const Z = { class: "form-box" }, G = { class: "group-box" }, ee = { class: "font-700" }, te = W({ name: "CdFormItemPanel" }), se = /* @__PURE__ */ W({
+  ...te,
   props: {
+    formItemConfig: {
+      type: Object,
+      default: () => k
+    },
     size: {
       type: String,
-      default: F.defaultFormSize || "default"
+      default: B.defaultFormSize || "default"
     },
     noShowFieldControl: {
       type: Array,
@@ -64,97 +66,81 @@ const G = { class: "form-box" }, ee = { class: "group-box" }, te = { class: "fon
     }
   },
   emits: ["renderPercentPath"],
-  setup(n, { emit: oe }) {
-    const i = n, _ = w(F.showSubformPanelProp), B = w(1), W = w(!1), k = w([]), f = w({
-      // 表单配置
-      id: "",
-      no: "",
-      name: "",
-      type: "",
-      formcol: 1,
-      // 表单风格，意思是，一行占几列
-      dictColumns: [],
-      groups: [],
-      columns: []
-    }), A = async () => {
-      let {
-        value: e,
-        setValue: o
-      } = Y(i.viewNo, "");
-      if (!(F.viewConfigCache && e)) {
-        const d = await X(i.viewNo);
-        Z(d, () => {
-          e = d.data, e && o(e);
-        }, !1);
-      }
-      e.formcol && (e.formcol = parseInt(e.formcol)), f.value = e, z(e.columns), E(e.groups), console.info("🚀 ~ file:index method: line:223 -----", e);
-    }, z = (e = []) => {
-      e.length > 0 && e.forEach((o) => U(o));
+  setup(l, { emit: ae }) {
+    const i = l, z = w(B.showSubformPanelProp), D = w(1), A = w(!1), F = w([]), s = w(k);
+    Q(() => i.formItemConfig, (e) => {
+      _();
+    });
+    const _ = async () => {
+      const { formItemConfig: e } = i;
+      e != null && e.formcol && (e.formcol = parseInt(String(e.formcol))), s.value = e || k, x(e == null ? void 0 : e.columns), E(e == null ? void 0 : e.groups);
+    }, x = (e = []) => {
+      e.length > 0 && e.forEach((n) => U(n));
     }, E = (e = []) => {
-      e.length > 0 && e.forEach((o, d) => {
-        var m;
-        z((o == null ? void 0 : o.columns) ?? []), (m = i.defaultClosePanels) != null && m.includes(d) || k.value.push(`${d}`);
-      }), f.value.groups = e;
+      e.length > 0 && e.forEach((n, f) => {
+        var p;
+        x((n == null ? void 0 : n.columns) ?? []), (p = i.defaultClosePanels) != null && p.includes(f) || F.value.push(`${f}`);
+      }), s.value.groups = e;
     }, U = (e) => {
-      const { compLength: o, dictType: d, dictParentId: m, dictParentValue: b } = e;
-      e.viewId = f.value.id, e.compLength = o ? `${o}px` : "100%", e.dictConf = { type: d || "", parentId: m || "", parentValue: b || "" }, e.colWidth = e.isLine === "1" ? 24 : 24 / f.value.formcol;
-    }, O = (e) => {
+      const { compLength: n, dictType: f, dictParentId: p, dictParentValue: g } = e;
+      e.viewId = s.value.id, e.compLength = n ? `${n}px` : "100%", e.dictConf = { type: f || "", parentId: p || "", parentValue: g || "" }, e.colWidth = e.isLine === "1" ? 24 : 24 / s.value.formcol;
+    }, R = (e) => {
       if (i.showRequired)
         return { required: e.isNull === "1", message: "请填写" + e.comments, trigger: "blur" };
-    }, D = (e) => {
-      var o;
-      return e.colWidth === 24 ? e.showType === "textarea" ? "width:98%;" : (o = i.fullItemKeys) != null && o.includes(e.name) ? "width:100%;" : `width:${1 / f.value.formcol * 100}%;` : "width: 100%;";
+    }, K = (e) => {
+      var n;
+      return e.colWidth === 24 ? e.showType === "textarea" ? "width:98%;" : (n = i.fullItemKeys) != null && n.includes(e.name) ? "width:100%;" : `width:${1 / s.value.formcol * 100}%;` : "width: 100%;";
     };
-    return J(() => {
-      console.info("🚀 ~ file:index method: line:313 -----", i.slots), i.viewNo && f.value.columns.length === 0 && A();
-    }), (e, o) => {
-      const d = h("Progress"), m = h("Form-item"), b = h("Col"), R = h("Row"), K = h("Panel"), M = h("Collapse");
-      return l(), s("div", G, [
-        V(u(d, {
-          percent: B.value,
+    return X(() => {
+      i.viewNo && s.value.columns.length === 0 && _();
+    }), (e, n) => {
+      const f = c("Progress"), p = c("Form-item"), g = c("Col"), T = c("Row"), M = c("Panel"), H = c("Collapse");
+      return r(), o("div", Z, [
+        V(u(f, {
+          percent: D.value,
           "hide-info": ""
         }, null, 8, ["percent"]), [
-          [x, W.value]
+          [O, A.value]
         ]),
-        u(R, null, {
-          default: r(() => [
-            (l(!0), s(p, null, v(f.value.columns, (t) => V((l(), P(b, {
+        u(T, null, {
+          default: d(() => [
+            (r(!0), o(y, null, v(s.value.columns, (t) => V((r(), P(g, {
               span: t.colWidth,
               key: t.id
             }, {
-              default: r(() => [
-                u(m, {
-                  rules: O(t),
-                  style: N(t.colWidth == 24 && t.showType == "textarea" ? "width:98%;" : ""),
+              default: d(() => [
+                u(p, {
+                  rules: R(t),
+                  style: $(t.colWidth == 24 && t.showType == "textarea" ? "width:98%;" : ""),
                   label: t.comments,
                   "label-width": 200,
                   prop: t.name
                 }, {
-                  default: r(() => [
+                  default: d(() => [
                     S("span", {
                       slot: "label",
-                      class: T(t.styleName)
+                      class: j(t.styleName)
                     }, C(t.comments), 3),
-                    t.showType !== "hidden" ? (l(), s(p, { key: 0 }, [
-                      $(C(_.value ? `${t.name},${t.dbName}` : ""), 1)
-                    ], 64)) : g("", !0),
+                    t.showType !== "hidden" ? (r(), o(y, { key: 0 }, [
+                      N(C(z.value ? `${t.name},${t.dbName}` : ""), 1)
+                    ], 64)) : b("", !0),
                     u(I(L), {
-                      modelValue: n.formObject[n.attrPrefix + t.name],
-                      "onUpdate:modelValue": (y) => n.formObject[n.attrPrefix + t.name] = y,
+                      modelValue: l.formObject[l.attrPrefix + t.name],
+                      "onUpdate:modelValue": (h) => l.formObject[l.attrPrefix + t.name] = h,
                       type: t.showType,
-                      size: n.size,
+                      size: l.size,
                       name: t.name,
                       prop: t.name,
                       disabled: t.isReadonly === "1",
-                      readonly: t.isReadonly === "1" || n.readOnly,
+                      readonly: t.isReadonly === "1" || l.readOnly,
                       width: t.compLength,
                       dictConf: t.dictConf
                     }, {
-                      default: r(() => [
-                        (l(!0), s(p, null, v(n.slots, (y, a) => (l(), s(p, null, [
-                          t.name == y ? (l(), s("div", { key: a }, [
-                            j(e.$slots, y)
-                          ])) : g("", !0)
+                      default: d(() => [
+                        (r(!0), o(y, null, v(l.slots, (h, a) => (r(), o(y, null, [
+                          t.name == h ? (r(), o("div", { key: a }, [
+                            q(e.$slots, h)
+                          ])) : b("", !0)
                         ], 64))), 256))
                       ]),
                       _: 2
@@ -165,77 +151,78 @@ const G = { class: "form-box" }, ee = { class: "group-box" }, te = { class: "fon
               ]),
               _: 2
             }, 1032, ["span"])), [
-              [x, t.showType !== "hidden"]
+              [O, t.showType !== "hidden"]
             ])), 128))
           ]),
           _: 3
         }),
-        S("div", ee, [
-          u(M, { "model-value": k.value }, {
-            default: r(() => [
-              (l(!0), s(p, null, v(f.value.groups, (t, y) => (l(), P(K, {
-                name: `${y}`,
+        S("div", G, [
+          u(H, { "model-value": F.value }, {
+            default: d(() => [
+              (r(!0), o(y, null, v(s.value.groups, (t, h) => (r(), P(M, {
+                name: `${h}`,
                 key: t.id
               }, {
-                content: r(() => [
-                  u(R, null, {
-                    default: r(() => [
-                      (l(!0), s(p, null, v(t.columns, (a) => V((l(), P(b, {
+                content: d(() => [
+                  u(T, null, {
+                    default: d(() => [
+                      (r(!0), o(y, null, v(t.columns, (a) => V((r(), P(g, {
                         span: a.colWidth,
                         key: a.id
                       }, {
-                        default: r(() => [
-                          n.noShowFieldControl.indexOf(a.name) == -1 ? (l(), P(m, {
+                        default: d(() => [
+                          l.noShowFieldControl.indexOf(a.name) == -1 ? (r(), P(p, {
                             key: 0,
-                            rules: O(a),
-                            style: N(D(a)),
+                            rules: R(a),
+                            style: $(K(a)),
                             "label-width": 200,
                             prop: a.name
                           }, {
-                            label: r(() => [
-                              S("div", {
-                                class: T(a.styleName)
+                            label: d(() => [
+                              S("span", {
+                                class: j(a.styleName)
                               }, C(a.comments), 3)
                             ]),
-                            default: r(() => [
-                              a.showType !== "hidden" ? (l(), s(p, { key: 0 }, [
-                                $(C(_.value ? a.name : ""), 1)
-                              ], 64)) : g("", !0),
+                            default: d(() => [
+                              a.showType !== "hidden" ? (r(), o(y, { key: 0 }, [
+                                N(C(z.value ? a.name : ""), 1)
+                              ], 64)) : b("", !0),
                               u(I(L), {
-                                modelValue: n.formObject[a.name],
-                                "onUpdate:modelValue": (c) => n.formObject[a.name] = c,
+                                modelValue: l.formObject[a.name],
+                                "onUpdate:modelValue": (m) => l.formObject[a.name] = m,
                                 type: a.showType,
-                                size: n.size,
+                                size: l.size,
                                 name: a.name,
                                 prop: a.name,
-                                readonly: a.isReadonly === "1" || n.readOnly,
+                                readonly: a.isReadonly === "1" || l.readOnly,
                                 disabled: a.isReadonly === "1",
                                 width: a.compLength,
-                                dictConf: a.dictConf
-                              }, Q({ _: 2 }, [
-                                v(i.slots, (c, H) => ({
-                                  name: c,
-                                  fn: r(() => [
-                                    a.name == c ? (l(), s("div", { key: H }, [
-                                      j(e.$slots, c)
-                                    ])) : g("", !0)
+                                dictConf: a.dictConf,
+                                dictData: a.dictData
+                              }, Y({ _: 2 }, [
+                                v(i.slots, (m, J) => ({
+                                  name: m,
+                                  fn: d(() => [
+                                    a.name == m ? (r(), o("div", { key: J }, [
+                                      q(e.$slots, m)
+                                    ])) : b("", !0)
                                   ])
                                 }))
-                              ]), 1032, ["modelValue", "onUpdate:modelValue", "type", "size", "name", "prop", "readonly", "disabled", "width", "dictConf"])
+                              ]), 1032, ["modelValue", "onUpdate:modelValue", "type", "size", "name", "prop", "readonly", "disabled", "width", "dictConf", "dictData"])
                             ]),
                             _: 2
-                          }, 1032, ["rules", "style", "prop"])) : g("", !0)
+                          }, 1032, ["rules", "style", "prop"])) : b("", !0)
                         ]),
                         _: 2
                       }, 1032, ["span"])), [
-                        [x, a.showType !== "hidden"]
+                        [O, a.showType !== "hidden"]
                       ])), 128))
                     ]),
                     _: 2
                   }, 1024)
                 ]),
-                default: r(() => [
-                  S("span", te, C(t.name), 1)
+                default: d(() => [
+                  S("span", ee, C(t.name), 1)
                 ]),
                 _: 2
               }, 1032, ["name"]))), 128))
@@ -248,5 +235,5 @@ const G = { class: "form-box" }, ee = { class: "group-box" }, te = { class: "fon
   }
 });
 export {
-  me as default
+  se as default
 };

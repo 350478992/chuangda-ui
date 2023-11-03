@@ -53,6 +53,7 @@ export interface Config {
     loginLogoSrc?: string;
     sloganTxt?: string;
     showSubformPanelProp?: boolean;
+    areaCodeDisabled?: Object;
 }
 export interface SortConfig {
     orderByColumnField?: any;

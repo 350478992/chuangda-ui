@@ -1,4 +1,4 @@
-export declare const CdInput: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdInput: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     modelValue: {
         type: import("vue").PropType<string | number>;
         required: true;

@@ -42,4 +42,5 @@ export interface FormColumn {
     dictParentId?: string;
     dictParentValue?: string;
     dictConf?: DictQueryCond;
+    dictData?: Array<any>;
 }

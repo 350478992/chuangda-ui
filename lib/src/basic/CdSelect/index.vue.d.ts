@@ -1,9 +1,12 @@
+import { PropType } from 'vue';
+import { OptionType } from 'src/interfaces';
 declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: {
         type: (StringConstructor | ArrayConstructor)[];
         default: string;
     };
     list: {
+        type: PropType<OptionType[]>;
         default: () => never[];
     };
     equclacode: {
@@ -44,6 +47,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: string;
     };
     list: {
+        type: PropType<OptionType[]>;
         default: () => never[];
     };
     equclacode: {
@@ -88,7 +92,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: string | unknown[];
     pVal: string;
     pId: string;
-    list: never[];
+    list: OptionType[];
     equclacode: string;
     empty: boolean;
     labelInValue: boolean;

@@ -1,4 +1,4 @@
-export declare const CdIcon: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdIcon: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     iconRender: {
         type: import("vue").PropType<string | undefined>;
         required: false;

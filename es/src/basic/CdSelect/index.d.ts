@@ -1,9 +1,10 @@
-export declare const CdSelect: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdSelect: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     modelValue: {
         type: (StringConstructor | ArrayConstructor)[];
         default: string;
     };
     list: {
+        type: import("vue").PropType<import("../../interfaces").OptionType[]>;
         default: () => never[];
     };
     equclacode: {
@@ -44,6 +45,7 @@ export declare const CdSelect: import("@chuangda/utils/withinstall").SFCWithInst
         default: string;
     };
     list: {
+        type: import("vue").PropType<import("../../interfaces").OptionType[]>;
         default: () => never[];
     };
     equclacode: {
@@ -88,7 +90,7 @@ export declare const CdSelect: import("@chuangda/utils/withinstall").SFCWithInst
     modelValue: string | unknown[];
     pVal: string;
     pId: string;
-    list: never[];
+    list: import("../../interfaces").OptionType[];
     equclacode: string;
     empty: boolean;
     labelInValue: boolean;

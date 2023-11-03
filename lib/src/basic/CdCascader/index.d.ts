@@ -1,4 +1,4 @@
-export declare const CdCascader: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdCascader: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     size: StringConstructor;
     disabled: BooleanConstructor;
     filterable: BooleanConstructor;
@@ -9,7 +9,7 @@ export declare const CdCascader: import("@chuangda/utils/withinstall").SFCWithIn
     modelValue: StringConstructor;
     type: {
         type: StringConstructor;
-        default: string;
+        required: true;
     };
     pVal: StringConstructor;
     pId: {
@@ -66,7 +66,7 @@ export declare const CdCascader: import("@chuangda/utils/withinstall").SFCWithIn
     modelValue: StringConstructor;
     type: {
         type: StringConstructor;
-        default: string;
+        required: true;
     };
     pVal: StringConstructor;
     pId: {
@@ -118,7 +118,6 @@ export declare const CdCascader: import("@chuangda/utils/withinstall").SFCWithIn
     "onGet-last-label"?: ((...args: any[]) => any) | undefined;
     "onOn-change"?: ((...args: any[]) => any) | undefined;
 }, {
-    type: string;
     disabled: boolean;
     filterable: boolean;
     clearable: boolean;

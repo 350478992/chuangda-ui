@@ -1,4 +1,4 @@
-export declare const CdPageListSimple: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdPageListSimple: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     pageSize: {
         type: NumberConstructor;
         default: number;

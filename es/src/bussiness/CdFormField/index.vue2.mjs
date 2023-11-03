@@ -1,8 +1,8 @@
-import { defineComponent as C, useAttrs as V, ref as k, watch as x, resolveComponent as c, openBlock as d, createElementBlock as v, createBlock as n, unref as h, normalizeStyle as y, renderSlot as I, Fragment as S, createTextVNode as b, toDisplayString as z } from "vue";
-import { CdRadioGroup as O } from "../../basic/CdRadioGroup/index.mjs";
-import { CdCheckboxGroup as D } from "../../basic/CdCheckboxGroup/index.mjs";
+import { defineComponent as C, useAttrs as p, ref as k, watch as x, resolveComponent as c, openBlock as d, createElementBlock as s, createBlock as n, unref as v, normalizeStyle as y, renderSlot as I, Fragment as S, createTextVNode as D, toDisplayString as b } from "vue";
+import { CdRadioGroup as z } from "../../basic/CdRadioGroup/index.mjs";
+import { CdCheckboxGroup as O } from "../../basic/CdCheckboxGroup/index.mjs";
 import { CdCascader as $ } from "../../basic/CdCascader/index.mjs";
-import { formatTimeToStr as s } from "@/util";
+import { formatTimeToStr as h } from "@/util";
 const B = ["value"], M = C({ name: "CdFormField" }), G = /* @__PURE__ */ C({
   ...M,
   props: {
@@ -53,12 +53,15 @@ const B = ["value"], M = C({ name: "CdFormField" }), G = /* @__PURE__ */ C({
         parentId: "",
         parentValue: ""
       })
+    },
+    dictData: {
+      type: Array
     }
   },
   emits: ["update:modelValue"],
-  setup(e, { emit: p }) {
+  setup(e, { emit: w }) {
     const m = e;
-    V();
+    p();
     const t = k(m.modelValue);
     x(
       () => m.modelValue,
@@ -66,18 +69,18 @@ const B = ["value"], M = C({ name: "CdFormField" }), G = /* @__PURE__ */ C({
         u(l);
       }
     );
-    const w = (l) => {
+    const g = (l) => {
       let a = "";
       l && (a = l.dictDataId3 || l.dictDataId2 || l.dictDataId1), t.value = a, f(a);
     }, u = (l) => {
       const { name: a, type: i } = m;
-      console.log(`属性名称：${a}, 组件类型：${i}, 类型：${typeof l}, 值：${l}`), l ? i == "year" ? t.value = s(l, "yyyy") : i == "dateselect" ? t.value = s(l, "yyyy-MM-dd") : i == "timeselect" ? t.value = s(l, "yyyy-MM-dd hh:mm:ss") : (i == "daterange", t.value = l) : t.value = "", f(t.value);
+      console.log(`属性名称：${a}, 组件类型：${i}, 类型：${typeof l}, 值：${l}`), l ? i == "year" ? t.value = h(l, "yyyy") : i == "dateselect" ? t.value = h(l, "yyyy-MM-dd") : i == "timeselect" ? t.value = h(l, "yyyy-MM-dd hh:mm:ss") : (i == "daterange", t.value = l) : t.value = "", f(t.value);
     }, f = (...l) => {
-      p("update:modelValue", ...l);
+      w("update:modelValue", ...l);
     };
     return (l, a) => {
-      const i = c("Input"), g = c("CdSelect"), r = c("DatePicker");
-      return d(), v("div", null, [
+      const i = c("Input"), V = c("CdSelect"), r = c("DatePicker");
+      return d(), s("div", null, [
         e.type == "textarea" ? (d(), n(i, {
           key: 0,
           type: "textarea",
@@ -88,31 +91,34 @@ const B = ["value"], M = C({ name: "CdFormField" }), G = /* @__PURE__ */ C({
           modelModifiers: { trim: !0 },
           onOnChange: a[1] || (a[1] = (o) => f(t.value)),
           readonly: e.readonly
-        }, null, 8, ["modelValue", "readonly"])) : e.type == "select" ? (d(), n(g, {
+        }, null, 8, ["modelValue", "readonly"])) : e.type == "select" ? (d(), n(V, {
           key: 1,
           value: t.value,
           type: e.dictConf.type,
           pId: e.dictConf.parentId,
           pVal: e.dictConf.parentValue,
+          list: e.dictData,
           onChange: u,
           width: e.width
-        }, null, 8, ["value", "type", "pId", "pVal", "width"])) : e.type == "radiobox" ? (d(), n(h(O), {
+        }, null, 8, ["value", "type", "pId", "pVal", "list", "width"])) : e.type == "radiobox" ? (d(), n(v(z), {
           key: 2,
           value: t.value,
           type: e.dictConf.type,
           pId: e.dictConf.parentId,
           pVal: e.dictConf.parentValue,
+          list: e.dictData,
           onChangeCall: u,
           width: e.width
-        }, null, 8, ["value", "type", "pId", "pVal", "width"])) : e.type == "checkbox" ? (d(), n(h(D), {
+        }, null, 8, ["value", "type", "pId", "pVal", "list", "width"])) : e.type == "checkbox" ? (d(), n(v(O), {
           key: 3,
           value: t.value,
           type: e.dictConf.type,
           pId: e.dictConf.parentId,
           pVal: e.dictConf.parentValue,
+          list: e.dictData,
           onChangeCall: u,
           width: e.width
-        }, null, 8, ["value", "type", "pId", "pVal", "width"])) : e.type == "dateselect" ? (d(), n(r, {
+        }, null, 8, ["value", "type", "pId", "pVal", "list", "width"])) : e.type == "dateselect" ? (d(), n(r, {
           key: 4,
           type: "date",
           size: "default",
@@ -147,20 +153,20 @@ const B = ["value"], M = C({ name: "CdFormField" }), G = /* @__PURE__ */ C({
           style: y({ width: e.width + "px" }),
           value: t.value,
           onOnChange: u
-        }, null, 8, ["style", "value"])) : e.type == "areaselect" ? (d(), n(h($), {
+        }, null, 8, ["style", "value"])) : e.type == "areaselect" ? (d(), n(v($), {
           key: 9,
           dictType: "sys_area",
           parentValue: "000000",
-          onOnChangeCall: w,
+          onOnChangeCall: g,
           modelValue: t.value,
           "onUpdate:modelValue": a[2] || (a[2] = (o) => t.value = o),
           style: y({ width: e.width + "px", "margin-top": "-4px" })
         }, null, 8, ["modelValue", "style"])) : e.type == "slot" ? I(l.$slots, e.name, {
           key: 10,
           style: y({ width: e.width + "px" })
-        }, void 0, !0) : e.type == "label" ? (d(), v(S, { key: 11 }, [
-          b(z(t.value), 1)
-        ], 64)) : e.type == "hidden" ? (d(), v("input", {
+        }, void 0, !0) : e.type == "label" ? (d(), s(S, { key: 11 }, [
+          D(b(t.value), 1)
+        ], 64)) : e.type == "hidden" ? (d(), s("input", {
           key: 12,
           type: "hidden",
           value: t.value

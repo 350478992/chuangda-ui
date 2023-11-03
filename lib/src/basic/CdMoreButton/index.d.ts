@@ -1,4 +1,4 @@
-export declare const CdMoreButton: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdMoreButton: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
     vertical: {
         type: BooleanConstructor;
         default: boolean;

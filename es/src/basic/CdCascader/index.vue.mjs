@@ -1,7 +1,7 @@
-import { defineComponent as M, reactive as H, ref as p, onBeforeMount as T, watch as v, resolveComponent as J, unref as V, openBlock as S, createBlock as L, isRef as O } from "vue";
-import { apiFindDictList as I, apiFindDictItem as A } from "@/api/system";
-const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
-  ...E,
+import { defineComponent as M, reactive as F, ref as f, onBeforeMount as H, watch as v, resolveComponent as T, unref as V, openBlock as S, createBlock as L, isRef as J } from "vue";
+import { apiFindDictList as I, apiFindDictItem as O } from "@/api/system";
+const A = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
+  ...A,
   props: {
     size: String,
     // 输入框大小
@@ -18,7 +18,8 @@ const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
     type: {
       // 字典类型
       type: String,
-      default: ""
+      required: !0
+      // default: '',
     },
     pVal: String,
     // 父级值
@@ -74,8 +75,8 @@ const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
     // 级联选择指定展示的层级,默认无限大
     showLev: {
       type: Number,
-      validator(i) {
-        return i ? +i > 1 : !0;
+      validator(u) {
+        return u ? +u > 1 : !0;
       },
       default: 999
     }
@@ -86,11 +87,11 @@ const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
     "get-last-label",
     "on-change"
   ],
-  setup(i, { expose: R, emit: u }) {
-    const e = i, C = () => {
+  setup(u, { expose: R, emit: i }) {
+    const e = u, C = () => {
       B(), g();
     };
-    let b = H([]), h = p(!1);
+    let b = F([]), h = f(!1);
     const g = () => {
       h.value = !0, I({
         type: e.type,
@@ -98,6 +99,10 @@ const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
         parentValue: e.pVal
       }).then((l) => {
         const { isSuccess: a, errorMsg: s, data: n } = l || {};
+        if (!n) {
+          console.info("🚀 ~ file:index method: line:169 -----", `字典数据为空，type=${e.type}, pId=${e.pId}, pVal=${e.pVal}, `);
+          return;
+        }
         a ? (b = n.map((o) => {
           if (o.lev = 1, e.showableRootVals.length) {
             const d = e.showableRootVals.includes(o.value), t = e.showableRootValsReverse ? d : !d;
@@ -110,15 +115,15 @@ const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
           value: e.emptyItemValue
         })) : window.$Message.error(s), h.value = !1;
       });
-    }, c = p();
-    let r = p([]);
+    }, c = f();
+    let r = f([]);
     const B = async () => {
       if (e.modelValue) {
         r.value = [];
         let l = e.modelValue || "", a = 0;
         const s = [];
         for (; a <= 5; ) {
-          const n = await A({
+          const n = await O({
             type: e.type,
             value: l
           }), { isSuccess: o, errorMsg: d, data: t } = n;
@@ -130,7 +135,7 @@ const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
       } else
         r.value = [];
     };
-    T(() => {
+    H(() => {
       C();
     });
     const k = (l, a) => {
@@ -139,48 +144,47 @@ const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
         n ? (l.children = d == null ? void 0 : d.map((t) => {
           if (t.lev = l.lev + 1, t.lev === 2)
             if (e.showableSubVals && e.showableSubVals.length) {
-              console.log(e.showableSubVals, t, 2333);
-              const m = e.showableSubVals.includes(t.value), F = e.showableSubValsReverse ? m : !m;
-              t.disabled = F;
+              const m = e.showableSubVals.includes(t.value), z = e.showableSubValsReverse ? m : !m;
+              t.disabled = z;
             } else
               t.disabled = !1;
           return e.showLev !== 999 && e.showLev <= t.lev ? { ...t, childrenSum: 0 } : t.childrenSum > 0 ? { ...t, children: [], loading: !1 } : t;
         }), l.loading = !1) : window.$Message.error(o), a();
       });
-    }, D = (l, a) => {
-      r.value = l, u("update:modelValue", l[l.length - 1]);
+    }, x = (l, a) => {
+      r.value = l, i("update:modelValue", l[l.length - 1]);
       const s = a.map((n) => n.label);
-      u("get-full-label", s.join(e.splitChar)), u("get-last-label", s[s.length - 1]), u("on-change", l, s);
-    }, w = p(!1), x = ["", "一", "二", "三", "四", "五"], z = (l) => {
+      i("get-full-label", s.join(e.splitChar)), i("get-last-label", s[s.length - 1]), i("on-change", l, s);
+    }, w = f(!1), D = ["", "一", "二", "三", "四", "五"], $ = (l) => {
       w.value = l, l || y();
     }, y = () => {
       const l = c.value.selected, a = l[l.length - 1];
-      return a && !a.lev && (a.lev = 1), e.selLastLev && !(l.length > 0 ? a.childrenSum === 0 : !1) ? (window.$Message.warning("请选择到最后一级"), f(), !1) : e.selMinLev !== 0 && e.selMinLev <= e.showLev && (!a || a.lev < e.selMinLev) ? (window.$Message.warning(
-        `请至少选择到第${x[e.selMinLev]}级`
-      ), f(), !1) : !0;
-    }, f = () => {
-      r.value = [], u("update:modelValue", "");
+      return a && !a.lev && (a.lev = 1), e.selLastLev && !(l.length > 0 ? a.childrenSum === 0 : !1) ? (window.$Message.warning("请选择到最后一级"), p(), !1) : e.selMinLev !== 0 && e.selMinLev <= e.showLev && (!a || a.lev < e.selMinLev) ? (window.$Message.warning(
+        `请至少选择到第${D[e.selMinLev]}级`
+      ), p(), !1) : !0;
+    }, p = () => {
+      r.value = [], i("update:modelValue", "");
     };
     return R({
       levSelectJudgeHandle: y,
-      resetValue: f
+      resetValue: p
     }), v(
       () => e.modelValue,
       (l) => {
-        l || f();
+        l || p();
       }
     ), v([() => e.showableRootVals, () => e.showableSubVals], () => {
       g();
     }), v([() => e.pVal, () => e.pId], () => {
       g();
     }), (l, a) => {
-      const s = J("Cascader");
+      const s = T("Cascader");
       return V(h) ? (S(), L(s, { key: 0 })) : (S(), L(s, {
         key: 1,
         ref_key: "cascaderRef",
         ref: c,
         modelValue: V(r),
-        "onUpdate:modelValue": a[0] || (a[0] = (n) => O(r) ? r.value = n : r = n),
+        "onUpdate:modelValue": a[0] || (a[0] = (n) => J(r) ? r.value = n : r = n),
         transfer: "",
         data: V(b),
         size: e.size,
@@ -189,8 +193,8 @@ const E = M({ name: "CdCascader" }), j = /* @__PURE__ */ M({
         disabled: e.disabled,
         filterable: e.filterable,
         clearable: e.clearable,
-        onOnChange: D,
-        onOnVisibleChange: z
+        onOnChange: x,
+        onOnVisibleChange: $
       }, null, 8, ["modelValue", "data", "size", "change-on-select", "disabled", "filterable", "clearable"]));
     };
   }

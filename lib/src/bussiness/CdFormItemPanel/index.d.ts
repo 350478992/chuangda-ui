@@ -1,4 +1,8 @@
-export declare const CdFormItemPanel: import("@chuangda/utils/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+export declare const CdFormItemPanel: import("@chuangda/utils/dist/lib/withinstall").SFCWithInstall<import("vue").DefineComponent<{
+    formItemConfig: {
+        type: import("vue").PropType<import("./interfaces").FormItemConfig>;
+        default: () => any;
+    };
     size: {
         type: StringConstructor;
         default: any;
@@ -52,6 +56,10 @@ export declare const CdFormItemPanel: import("@chuangda/utils/withinstall").SFCW
         default: () => never[];
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "renderPercentPath"[], "renderPercentPath", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    formItemConfig: {
+        type: import("vue").PropType<import("./interfaces").FormItemConfig>;
+        default: () => any;
+    };
     size: {
         type: StringConstructor;
         default: any;
@@ -107,8 +115,9 @@ export declare const CdFormItemPanel: import("@chuangda/utils/withinstall").SFCW
 }>> & {
     onRenderPercentPath?: ((...args: any[]) => any) | undefined;
 }, {
-    slots: unknown[];
     size: string;
+    slots: unknown[];
+    formItemConfig: import("./interfaces").FormItemConfig;
     noShowFieldControl: unknown[];
     readOnly: boolean;
     showRequired: boolean;
