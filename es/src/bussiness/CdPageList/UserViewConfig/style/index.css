@@ -1,9 +1,0 @@
-.cd-user-view-config .header-extra {
-  position: absolute;
-  top: 0;
-  right: 30px;
-  cursor: pointer;
-}
-.cd-user-view-config .header-extra .text-info {
-  color: #57a3f3;
-}
