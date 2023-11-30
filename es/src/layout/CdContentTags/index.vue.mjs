@@ -1,62 +1,64 @@
-import { defineComponent as B, inject as D, ref as d, watch as R, resolveComponent as m, openBlock as h, createElementBlock as T, createVNode as a, createElementVNode as _, normalizeStyle as A, Fragment as E, renderList as I, unref as x, createBlock as j, withCtx as c, createTextVNode as C, toDisplayString as z } from "vue";
+import { defineComponent as M, inject as T, ref as d, watch as D, resolveComponent as m, openBlock as h, createElementBlock as x, createVNode as s, createElementVNode as _, normalizeStyle as A, Fragment as E, renderList as I, unref as B, createBlock as j, withCtx as u, createTextVNode as C, toDisplayString as z } from "vue";
 import "./style/index.css";
 import { useRoute as F, useRouter as V } from "vue-router";
-const q = { class: "cd-tag-wrap" }, G = { class: "close-box" }, H = B({ name: "CdContentTags" }), U = /* @__PURE__ */ B({
+const q = { class: "cd-tag-wrap" }, G = { class: "close-box" }, H = M({ name: "CdContentTags" }), U = /* @__PURE__ */ M({
   ...H,
   setup(J) {
-    const M = F(), p = V(), N = D("$config"), r = D("appStore");
-    let i = d(r.navTags), s = d(M.name);
-    R(
-      () => p.currentRoute.value,
+    const N = F(), v = V(), S = T("$config"), n = T("appStore");
+    let c = d(n.navTags), r = d(N.name);
+    D(
+      () => v.currentRoute.value,
       (o) => {
         var e;
-        s.value = o.name, r.handleNavTagsAdd({ name: o.name, title: (e = o.meta) == null ? void 0 : e.title }), i.value = r.navTags;
+        r.value = o.name, n.handleNavTagsAdd({ name: o.name, title: (e = o.meta) == null ? void 0 : e.title }), c.value = n.navTags;
       }
-    );
-    const w = (o, e) => {
-      if (o.name !== "home" && (i.value = r.handleNavTagsClose([o.name], "sigleclose"), s.value === o.name)) {
-        const l = i.value[e - 1];
-        s.value = l.name, p.push({
+    ), D(() => n.navTags, () => {
+      c.value = n.navTags;
+    });
+    const g = (o, e) => {
+      if (o.name !== "home" && (c.value = n.handleNavTagsClose([o.name], "sigleclose"), r.value === o.name)) {
+        const l = c.value[e - 1];
+        r.value = l.name, v.push({
           name: l.name
         });
       }
-    }, S = (o, e, l) => {
-      o.detail === 2 && N.tagNavDblClickClose ? w(e, l) : p.push({
+    }, O = (o, e, l) => {
+      o.detail === 2 && S.tagNavDblClickClose ? g(e, l) : v.push({
         name: e.name
       });
-    }, O = (o) => {
-      const e = o === "close-all", l = e ? ["home"] : ["home", s.value];
-      i.value = r.handleNavTagsClose(l, "batchcolse"), e && (s.value = "home", p.push({
+    }, $ = (o) => {
+      const e = o === "close-all", l = e ? ["home"] : ["home", r.value];
+      c.value = n.handleNavTagsClose(l, "batchcolse"), e && (r.value = "home", v.push({
         name: "home"
       }));
-    }, g = d(), b = d(), k = (o) => {
-      const { type: e, detail: l, wheelDelta: v } = o;
-      let u = 0;
-      (e === "DOMMouseScroll" || e === "mousewheel") && (u = v || -(l || 0) * 40), f(u);
+    }, w = d(), b = d(), k = (o) => {
+      const { type: e, detail: l, wheelDelta: p } = o;
+      let i = 0;
+      (e === "DOMMouseScroll" || e === "mousewheel") && (i = p || -(l || 0) * 40), f(i);
     }, t = d(0), f = (o) => {
-      const e = g.value.offsetWidth, l = b.value.offsetWidth;
+      const e = w.value.offsetWidth, l = b.value.offsetWidth;
       o > 0 ? t.value = Math.min(0, t.value + o) : e < l ? t.value < -(l - e + 8) ? t.value = t.value : t.value = Math.max(
         t.value + o - 8,
         e - l - 8
       ) : t.value = 0;
     };
     return (o, e) => {
-      const l = m("Button"), v = m("Tag"), u = m("DropdownItem"), $ = m("DropdownMenu"), L = m("Dropdown");
-      return h(), T("div", q, [
-        a(l, {
+      const l = m("Button"), p = m("Tag"), i = m("DropdownItem"), L = m("DropdownMenu"), W = m("Dropdown");
+      return h(), x("div", q, [
+        s(l, {
           class: "arrow-btn arrow-btn-left",
           icon: "ios-arrow-back",
-          onClick: e[0] || (e[0] = (n) => f(240))
+          onClick: e[0] || (e[0] = (a) => f(240))
         }),
-        a(l, {
+        s(l, {
           class: "arrow-btn arrow-btn-right",
           icon: "ios-arrow-forward",
-          onClick: e[1] || (e[1] = (n) => f(-240))
+          onClick: e[1] || (e[1] = (a) => f(-240))
         }),
         _("div", {
           class: "scroll-box",
           ref_key: "scrollBox",
-          ref: g,
+          ref: w,
           "on:DOMMouseScroll": k,
           onMousewheel: k
         }, [
@@ -66,38 +68,38 @@ const q = { class: "cd-tag-wrap" }, G = { class: "close-box" }, H = B({ name: "C
             ref: b,
             style: A({ marginLeft: t.value + "px" })
           }, [
-            (h(!0), T(E, null, I(x(i), (n, y) => (h(), j(v, {
+            (h(!0), x(E, null, I(B(c), (a, y) => (h(), j(p, {
               class: "scroll-box-tag",
               type: "dot",
               closable: "",
-              color: x(s) === n.name ? "primary" : "",
-              key: n.name,
-              onOnClose: () => w(n, y),
-              onClick: (W) => S(W, n, y)
+              color: B(r) === a.name ? "primary" : "",
+              key: a.name,
+              onOnClose: () => g(a, y),
+              onClick: (R) => O(R, a, y)
             }, {
-              default: c(() => [
-                C(z(n.title), 1)
+              default: u(() => [
+                C(z(a.title), 1)
               ]),
               _: 2
             }, 1032, ["color", "onOnClose", "onClick"]))), 128))
           ], 4)
         ], 544),
         _("div", G, [
-          a(L, {
+          s(W, {
             transfer: "",
-            onOnClick: O
+            onOnClick: $
           }, {
-            list: c(() => [
-              a($, null, {
-                default: c(() => [
-                  a(u, { name: "close-all" }, {
-                    default: c(() => [
+            list: u(() => [
+              s(L, null, {
+                default: u(() => [
+                  s(i, { name: "close-all" }, {
+                    default: u(() => [
                       C("关闭所有")
                     ]),
                     _: 1
                   }),
-                  a(u, { name: "close-others" }, {
-                    default: c(() => [
+                  s(i, { name: "close-others" }, {
+                    default: u(() => [
                       C("关闭其他")
                     ]),
                     _: 1
@@ -106,8 +108,8 @@ const q = { class: "cd-tag-wrap" }, G = { class: "close-box" }, H = B({ name: "C
                 _: 1
               })
             ]),
-            default: c(() => [
-              a(l, {
+            default: u(() => [
+              s(l, {
                 class: "close-box-btn",
                 icon: "ios-close-circle-outline"
               })

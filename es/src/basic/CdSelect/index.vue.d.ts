@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { OptionType } from 'src/interfaces';
+import { OptionType } from '../../interfaces';
 declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: {
         type: (StringConstructor | ArrayConstructor)[];
