@@ -1,5 +1,5 @@
 {
-  "name": "@chuangda/components",
+  "name": "chuangda-ui",
   "version": "1.0.12",
   "main": "lib/index.js",
   "module": "es/index.mjs",
@@ -30,6 +30,6 @@
     "url": "https://github.com/350478992/chuangda.git"
   },
   "dependencies": {
-    "@chuangda/utils": "^1.0.0"
+    "@chuangda-ui/utils": "^1.0.0"
   }
 }
