@@ -1,5 +1,5 @@
 {
-  "name": "chuangda-ui",
+  "name": "@chuangda/chuangda-ui",
   "version": "1.0.14",
   "main": "lib/index.js",
   "module": "es/index.mjs",
